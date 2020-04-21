@@ -1,0 +1,2 @@
+rootProject.name='marketingenerate'
+include ':app'

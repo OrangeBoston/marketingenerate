@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.QMUIWindowInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qmui_config_color_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <com.zhaoxing.view.sharpview.SharpLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:backgroundColor="@color/snow">
+
+                        <com.zhaoxing.view.sharpview.SharpTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:text="主体"
+                            android:textColor="@color/qmui_config_color_gray_2" />
+
+                        <ImageView
+                            android:id="@+id/iv_history_a"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_history" />
+                    </com.zhaoxing.view.sharpview.SharpLinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/qmui_config_color_gray_9" />
+
+                    <com.zhaoxing.view.sharpview.SharpEditText
+                        android:id="@+id/et_a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="@string/app_name"
+                        android:hint="在此输入"
+                        android:minLines="2"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/qmui_config_color_gray_5"
+                        android:textSize="15sp"
+                        app:arrowDirection="top"
+                        app:backgroundColor="@color/snow" />
+
+                    <com.zhaoxing.view.sharpview.SharpLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:backgroundColor="@color/snow">
+
+                        <com.zhaoxing.view.sharpview.SharpTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:text="事件"
+                            android:textColor="@color/qmui_config_color_gray_2" />
+
+                        <ImageView
+                            android:id="@+id/iv_history_b"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_history" />
+                    </com.zhaoxing.view.sharpview.SharpLinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/qmui_config_color_gray_9" />
+
+                    <com.zhaoxing.view.sharpview.SharpEditText
+                        android:id="@+id/et_b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="在此输入"
+                        android:minLines="2"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/qmui_config_color_gray_5"
+                        android:textSize="15sp"
+                        app:arrowDirection="top"
+                        app:backgroundColor="@color/snow" />
+
+                    <com.zhaoxing.view.sharpview.SharpLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:backgroundColor="@color/snow">
+
+                        <com.zhaoxing.view.sharpview.SharpTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:text="其实就是："
+                            android:textColor="@color/qmui_config_color_gray_2" />
+
+                        <ImageView
+                            android:id="@+id/iv_history_c"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_history" />
+                    </com.zhaoxing.view.sharpview.SharpLinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/qmui_config_color_gray_9" />
+
+                    <com.zhaoxing.view.sharpview.SharpEditText
+                        android:id="@+id/et_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="在此输入"
+                        android:minLines="2"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/qmui_config_color_gray_5"
+                        android:textSize="15sp"
+                        app:arrowDirection="top"
+                        app:backgroundColor="@color/snow" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:padding="6dp"
+                    android:layout_marginBottom="4dp">
+
+                    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                        android:id="@+id/btn_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:drawableLeft="@drawable/ic_clear"
+                        android:paddingLeft="32dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="32dp"
+                        android:paddingBottom="8dp"
+                        android:text=""
+                        android:textColor="@color/colorPrimary" />
+
+                    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                        android:id="@+id/btn_generate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="32dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="32dp"
+                        android:paddingBottom="8dp"
+                        android:text="生成" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/snow"
+                    android:orientation="vertical">
+
+                    <com.zhaoxing.view.sharpview.SharpLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.zhaoxing.view.sharpview.SharpTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:text=""
+                            android:textColor="@color/qmui_config_color_gray_2" />
+
+                        <ImageView
+                            android:id="@+id/iv_edit_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_edit_off" />
+
+                        <ImageView
+                            android:id="@+id/iv_copy_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_copy" />
+
+                        <ImageView
+                            android:id="@+id/iv_history_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_history" />
+                    </com.zhaoxing.view.sharpview.SharpLinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/qmui_config_color_gray_9" />
+
+                    <com.zhaoxing.view.sharpview.SharpEditText
+                        android:id="@+id/et_d"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="false"
+                        android:minLines="8"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:arrowDirection="top" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:fitsSystemWindows="true"
+        app:qmui_topbar_title_color="@color/snow" />
+
+</com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>
