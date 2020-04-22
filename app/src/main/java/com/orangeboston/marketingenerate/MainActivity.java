@@ -7,7 +7,6 @@ import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.SUCCESS) {
-                    Toast.makeText(MainActivity.this, "语音初始化失败", Toast.LENGTH_LONG).show();
+                    ToastUtils.showLong("因为某些比较复杂的原因，语音引擎罢工了(￣^￣)");
                 }
             }
         });
@@ -249,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         boolean a = (result1 == TextToSpeech.LANG_MISSING_DATA || result1 == TextToSpeech.LANG_NOT_SUPPORTED);
         boolean b = (result2 == TextToSpeech.LANG_MISSING_DATA || result2 == TextToSpeech.LANG_NOT_SUPPORTED);
         if (a || b) {
-            Toast.makeText(MainActivity.this, "数据丢失或不支持", Toast.LENGTH_LONG).show();
+            ToastUtils.showLong("没有语音引擎或语音引擎不支持");
             return;
         }
 
