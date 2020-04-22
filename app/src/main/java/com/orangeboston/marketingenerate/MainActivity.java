@@ -3,12 +3,15 @@ package com.orangeboston.marketingenerate;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -18,6 +21,8 @@ import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 import com.zhaoxing.view.sharpview.SharpEditText;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,10 +56,20 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivHistoryD;
     @BindView(R.id.btn_clear)
     QMUIRoundButton btnClear;
+    @BindView(R.id.iv_voice_a)
+    ImageView ivVoiceA;
+    @BindView(R.id.iv_voice_b)
+    ImageView ivVoiceB;
+    @BindView(R.id.iv_voice_c)
+    ImageView ivVoiceC;
+    @BindView(R.id.iv_voice_d)
+    ImageView ivVoiceD;
 
     private QMUITopBarLayout mTopBar;
     private int mCurrentDialogStyle = com.qmuiteam.qmui.R.style.QMUI_Dialog;
     private String a, b, c, d;
+
+    private TextToSpeech textToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +77,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initTopBar();
+
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.SUCCESS) {
+                    Toast.makeText(MainActivity.this, "语音初始化失败", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
     @OnClick({R.id.btn_generate, R.id.iv_history_a, R.id.iv_history_b, R.id.iv_history_c,
-            R.id.iv_edit_d, R.id.iv_copy_d, R.id.iv_history_d, R.id.btn_clear})
+            R.id.iv_edit_d, R.id.iv_copy_d, R.id.iv_history_d, R.id.btn_clear,
+            R.id.iv_voice_a, R.id.iv_voice_b, R.id.iv_voice_c, R.id.iv_voice_d})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_generate:
@@ -96,6 +122,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.iv_history_d:
                 ToastUtils.showShort("这里是历史记录，但是现在还没做出来(｡•ˇ‸ˇ•｡)");
+                break;
+            case R.id.iv_voice_a:
+                speek(etA.getText().toString());
+                break;
+            case R.id.iv_voice_b:
+                speek(etB.getText().toString());
+                break;
+            case R.id.iv_voice_c:
+                speek(etC.getText().toString());
+                break;
+            case R.id.iv_voice_d:
+                speek(etD.getText().toString());
                 break;
         }
     }
@@ -178,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
         new QMUIDialog.MessageDialogBuilder(this)
                 .setTitle("关于此软件")
                 .setSkinManager(QMUISkinManager.defaultInstance(this))
-                .setMessage("营销号生成器\n\n酷安 @夜色微微微凉\n\n仅供娱乐，可随意分享！\n\n(图标来自于网络；无任何商业用途；请勿商用)")
+                .setMessage(AppUtils.getAppName() + "  v" + AppUtils.getAppVersionName() + "\n\n酷安 @夜色微微微凉\n\n仅供娱乐，可随意分享！\n\n(图标来自于网络；无任何商业用途；请勿商用)")
                 .addAction("确定", new QMUIDialogAction.ActionListener() {
                     @Override
                     public void onClick(QMUIDialog dialog, int index) {
@@ -198,4 +236,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void speek(String content) {
+        if (TextUtils.isEmpty(content)) {
+            ToastUtils.showLong("没有需要播放的内容(=╯_╰=)");
+            return;
+        }
+
+        //判断是否支持下面两种语言
+        int result1 = textToSpeech.setLanguage(Locale.US);
+        int result2 = textToSpeech.setLanguage(Locale.SIMPLIFIED_CHINESE);
+        boolean a = (result1 == TextToSpeech.LANG_MISSING_DATA || result1 == TextToSpeech.LANG_NOT_SUPPORTED);
+        boolean b = (result2 == TextToSpeech.LANG_MISSING_DATA || result2 == TextToSpeech.LANG_NOT_SUPPORTED);
+        if (a || b) {
+            Toast.makeText(MainActivity.this, "数据丢失或不支持", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // 设置音调，值越大声音越尖（女生），值越小则变成男声,1.0是常规
+        textToSpeech.setPitch(1.0f);
+        // 设置语速
+        textToSpeech.setSpeechRate(1.0f);
+        // queueMode用于指定发音队列模式，两种模式选择
+        //（1）TextToSpeech.QUEUE_FLUSH：该模式下在有新任务时候会清除当前语音任务，执行新的语音任务
+        //（2）TextToSpeech.QUEUE_ADD：该模式下会把新的语音任务放到语音任务之后，等前面的语音任务执行完了才会执行新的语音任务
+        textToSpeech.speak(content, TextToSpeech.QUEUE_ADD, null);
+    }
+
+    private void stopSpeech() {
+        if (textToSpeech.isSpeaking()) {
+            return;
+        }
+        textToSpeech.stop(); // 不管是否正在朗读TTS都被打断
+        textToSpeech.shutdown(); // 关闭，释放资源
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopSpeech();
+    }
+
 }
