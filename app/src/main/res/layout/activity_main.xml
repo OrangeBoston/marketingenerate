@@ -39,6 +39,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="horizontal"
+                        android:paddingLeft="6dp"
                         app:backgroundColor="@color/snow">
 
                         <com.zhaoxing.view.sharpview.SharpTextView
@@ -65,6 +66,10 @@
                             android:background="?android:attr/selectableItemBackground"
                             android:padding="8dp"
                             android:src="@drawable/ic_history" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp" />
                     </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
                     <View
@@ -76,10 +81,12 @@
                         android:id="@+id/et_a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autofillHints="@string/app_name"
                         android:hint="在此输入"
                         android:minLines="2"
-                        android:padding="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textColorHint="@color/qmui_config_color_gray_5"
                         android:textSize="15sp"
@@ -92,6 +99,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="horizontal"
+                        android:paddingLeft="6dp"
                         app:backgroundColor="@color/snow">
 
                         <com.zhaoxing.view.sharpview.SharpTextView
@@ -118,6 +126,10 @@
                             android:background="?android:attr/selectableItemBackground"
                             android:padding="8dp"
                             android:src="@drawable/ic_history" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp" />
                     </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
                     <View
@@ -131,7 +143,10 @@
                         android:layout_height="wrap_content"
                         android:hint="在此输入"
                         android:minLines="2"
-                        android:padding="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textColorHint="@color/qmui_config_color_gray_5"
                         android:textSize="15sp"
@@ -144,6 +159,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="horizontal"
+                        android:paddingLeft="6dp"
                         app:backgroundColor="@color/snow">
 
                         <com.zhaoxing.view.sharpview.SharpTextView
@@ -170,6 +186,10 @@
                             android:background="?android:attr/selectableItemBackground"
                             android:padding="8dp"
                             android:src="@drawable/ic_history" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp" />
                     </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
                     <View
@@ -183,7 +203,10 @@
                         android:layout_height="wrap_content"
                         android:hint="在此输入"
                         android:minLines="2"
-                        android:padding="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textColorHint="@color/qmui_config_color_gray_5"
                         android:textSize="15sp"
@@ -223,6 +246,9 @@
                         android:paddingBottom="8dp"
                         android:text="生成" />
 
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -277,6 +303,11 @@
                             android:background="?android:attr/selectableItemBackground"
                             android:padding="8dp"
                             android:src="@drawable/ic_history" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp" />
+
                     </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
                     <View
